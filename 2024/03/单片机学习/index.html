@@ -1,0 +1,948 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MCULearn | 哥们的博客</title><meta name="author" content="Watermelon"><meta name="copyright" content="Watermelon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第1章 基础知识概述1.1 单片机概述1.1.1 基本概念现代微型计算机技术有两大分支  通用微型计算机系统（Universal microcomputer System，UCS），也成为个人计算机（PC） 主要技术目标：追求高速计算和海量存储能力 发展方向：CPU速度不断提升和存储容量不断扩大   嵌入式计算机系统（Embedded Computer System，ECS） 主要技术目标：满足被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCULearn">
+<meta property="og:url" content="https://www.sbtxigua.xyz/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="哥们的博客">
+<meta property="og:description" content="第1章 基础知识概述1.1 单片机概述1.1.1 基本概念现代微型计算机技术有两大分支  通用微型计算机系统（Universal microcomputer System，UCS），也成为个人计算机（PC） 主要技术目标：追求高速计算和海量存储能力 发展方向：CPU速度不断提升和存储容量不断扩大   嵌入式计算机系统（Embedded Computer System，ECS） 主要技术目标：满足被">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png">
+<meta property="article:published_time" content="2024-03-27T03:35:51.000Z">
+<meta property="article:modified_time" content="2024-04-11T09:19:46.912Z">
+<meta property="article:author" content="Watermelon">
+<meta property="article:tag" content="单片机学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png"><link rel="shortcut icon" href="https://s2.loli.net/2024/03/24/r7kGbsLSIx6z4MU.png"><link rel="canonical" href="https://www.sbtxigua.xyz/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":10,"languages":{"author":"作者: Watermelon","link":"链接: ","source":"来源: 哥们的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MCULearn',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-11 17:19:46'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2024/03/22/1Le9pdZf7JVoYr5.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png')"><nav id="nav"><span id="blog-info"><a href="/" title="哥们的博客"><span class="site-name">哥们的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MCULearn</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-27T03:35:51.000Z" title="发表于 2024-03-27 11:35:51">2024-03-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-11T09:19:46.912Z" title="更新于 2024-04-11 17:19:46">2024-04-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MCULearn"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第1章-基础知识概述"><a href="#第1章-基础知识概述" class="headerlink" title="第1章 基础知识概述"></a>第1章 基础知识概述</h1><h2 id="1-1-单片机概述"><a href="#1-1-单片机概述" class="headerlink" title="1.1 单片机概述"></a>1.1 单片机概述</h2><h3 id="1-1-1-基本概念"><a href="#1-1-1-基本概念" class="headerlink" title="1.1.1 基本概念"></a>1.1.1 基本概念</h3><p>现代微型计算机技术有两大分支</p>
+<ul>
+<li>通用微型计算机系统（Universal microcomputer System，UCS），也成为个人计算机（PC）<ul>
+<li><strong>主要技术目标：</strong>追求高速计算和海量存储能力</li>
+<li><strong>发展方向：</strong>CPU速度不断提升和存储容量不断扩大</li>
+</ul>
+</li>
+<li>嵌入式计算机系统（Embedded Computer System，ECS）<ul>
+<li><strong>主要技术目标：</strong>满足被控对象体系的物理、电气和环境及产品成本等要求</li>
+<li><strong>发展方向：</strong>与对象系统密切相关的嵌入性能、控制能力和控制可靠性</li>
+</ul>
+</li>
+</ul>
+<p>通过对PC进行电气加固、机械加固，并配置各种接口办卡，可以让其成为能嵌入大型被控对象系统中的<strong>工控机</strong>（Industrial Personal Computer，IPC），进而实现工业过程自动化和智能化。</p>
+<p><strong>单片微型计算机</strong>（Single Chip Microcomputer，SCM），简称<strong>单片机</strong>，是一类特殊的嵌入式计算机系统，它能嵌入<strong>小型被控对象</strong>（家用电器、医疗仪器、汽车电器等）之中，成为智能化的核心。</p>
+<p>单片机是一种<strong>集成电路芯片</strong>，采用超大规模集成电路技术将中央处理器（CPU)、程序存储器（ROM）、数据存储器（RAM)、并行输入输出（I&#x2F;O）口、串行口、中断系统、定时&#x2F;计数器（T&#x2F;C）、总线控制器、片内时钟等电路，集成到一块硅片上构成一个<strong>微型计算机系统</strong>。</p>
+<h3 id="1-1-2-应用领域"><a href="#1-1-2-应用领域" class="headerlink" title="1.1.2 应用领域"></a>1.1.2 应用领域</h3><p>单片机的<strong>特点：</strong>体积小、可靠性高、性价比高</p>
+<ul>
+<li><p>工业自动化控制系统</p>
+<ul>
+<li>数据采集系统、通信系统、信号检测系统、无限感知系统、测控系统、智能化管理系统、电梯智能化控制系统、各种报警系统、与计算机联网构成的控制系统、机电一体化控制系统等等</li>
+</ul>
+</li>
+<li><p>智能仪器仪表</p>
+<ul>
+<li>电压、功率、频率、温湿度、流量、速度、厚度、角度、长度、硬度、压力等物理量</li>
+</ul>
+</li>
+<li><p>通信设备</p>
+<ul>
+<li>多机网络中各种计算机之间的通信、计算机与外围设备（键盘、打印机等）之间的协作</li>
+</ul>
+</li>
+<li><p>汽车电子与航空航天电子系统</p>
+<ul>
+<li>发动机电子控制器、灯光控制系统、ABS防抱死系统、电子制动系统、胎压检测系统等。</li>
+</ul>
+</li>
+<li><p>家用电器</p>
+</li>
+</ul>
+<p><strong>微控制技术：</strong>以软件取代硬件并能提高系统性能的控制技术</p>
+<h3 id="1-1-3-主流单片机及其特点"><a href="#1-1-3-主流单片机及其特点" class="headerlink" title="1.1.3 主流单片机及其特点"></a>1.1.3 主流单片机及其特点</h3><p>按照不同分类方法，单片机具有不同产品类型</p>
+<ul>
+<li>字长：4位、8位、16位、32位等</li>
+<li>指令：精简指令集、复杂指令集</li>
+<li>内核：51系列、PIC系列、AVR系列、ARM系列等</li>
+</ul>
+<ol>
+<li><p><strong>51系列</strong></p>
+<p>Intel公司早年推出的MCS-51单片机包括众多型号，后来通过专利转让技术或技术交换将51内核技术授予了Atmel、Philips、Cygnal、Adi、Winbond等公司，它们连同MCS-51单片机一起被成为51系列单片机，简称51单片机。</p>
+<ul>
+<li>Atmel公司的AT89C51、AT89C52、AT89C2051等</li>
+<li>Winbond公司的78C52、77E58等</li>
+<li>宏晶公司的STC15W201S、STC15W401AS等</li>
+<li>Cygnal公司的C8051F020、C8051F340等</li>
+</ul>
+</li>
+<li><p><strong>PIC系列</strong></p>
+<p>PIC单片机是美国Microchip（微芯）公司的产品，最大特点是重视产品的性能与性价比</p>
+</li>
+<li><p><strong>AVR系列</strong></p>
+<p>AVR单片机是97年Atmel公司，在公司的Flash新技术基础上，研发的RISC（精简指令集）型高性能单片机</p>
+</li>
+<li><p><strong>ARM系列</strong></p>
+<p>ARM（Acorn RISC Machine）单片机是英国Acorn公司设计的低功耗、低成本RISC型微处理器。具有<strong>三大特点</strong>：耗电少且功能强、具有16位&#x2F;32位双指令集、拥有众多合作伙伴</p>
+</li>
+</ol>
+<h3 id="1-1-4-发展趋势"><a href="#1-1-4-发展趋势" class="headerlink" title="1.1.4 发展趋势"></a>1.1.4 发展趋势</h3><ul>
+<li><strong>单片机的发展趋势</strong></li>
+</ul>
+<ol>
+<li><p>CMOS化</p>
+<p>CMOS（Complementary Metal-Oxide-Semiconductor，互补金属-氧化物-半导体）是制造大规模集成电路芯片采用的一种工艺。优点是：动态功耗低、工作压力范围宽、抗干扰能力强、温度稳定性能好等</p>
+</li>
+<li><p>低功耗化</p>
+<p>单片机的功耗电流已降到毫安（mA）甚至微安（μA）级，供电电压在3~6V之间。低功耗化能给产品带来高可靠性、高抗干扰能力及产品的便携性</p>
+</li>
+<li><p>低电压化</p>
+</li>
+<li><p>高性能化</p>
+<p>采用RISC解构和流水线技术，目前指令速度已超过100MIPS（Million Instruction Per Seconds，百万条指令每秒），比普通单片机高出10倍以上；加强了位处理能力、中断和定时控制功能，实时响应能力大幅提高</p>
+</li>
+<li><p>大容量化</p>
+<p>目前，单片机片内ROM已达64KB，片内RAM也达2KB</p>
+</li>
+</ol>
+<ul>
+<li><strong>单片机的发展阶段</strong></li>
+</ul>
+<ol>
+<li><p>SCM（Single Chip Microcomputer，单片微型计算机）阶段</p>
+<p><strong>主要技术发展方向：</strong>寻求最佳单片形态的嵌入式系统体系结构</p>
+</li>
+<li><p>MCU（Micro Controller Unit，微控制器）阶段</p>
+<p><strong>主要技术发展方向：</strong>在SCM的基础上不仅提升了速度、功耗等基础性能，而且集成了许多外围电路，<strong>外围电路内装化</strong>，大幅提高了嵌入式系统的可靠性</p>
+</li>
+<li><p>SoC（System on Chip，片上芯片）阶段</p>
+<p>将单片微控制器延伸到单片应用系统：在单片机内核基础上集成了嵌入式系统所需的主要功能模块</p>
+</li>
+</ol>
+<h3 id="1-1-5-安装Proteus"><a href="#1-1-5-安装Proteus" class="headerlink" title="1.1.5 安装Proteus"></a>1.1.5 安装Proteus</h3><p>8.13版本：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16C411h7Jh/?spm_id_from=333.337.search-card.all.click&vd_source=767cdc000e6d964a391f8c6213d20461">单片机仿真软件Proteus8.13安装破解汉化教程_哔哩哔哩_bilibili</a></p>
+<p>8.16版本：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iG411S7tw/?spm_id_from=333.337.search-card.all.click">【配音+字幕】Proteus8.16安装破解汉化教程 详细靠谱(附下载链接)_哔哩哔哩_bilibili</a></p>
+<h2 id="1-2-基本知识"><a href="#1-2-基本知识" class="headerlink" title="1.2 基本知识"></a>1.2 基本知识</h2><h3 id="1-2-1-有符号数"><a href="#1-2-1-有符号数" class="headerlink" title="1.2.1 有符号数"></a>1.2.1 有符号数</h3><p>0代表符号“+”，1代表符号“-”；有符号数具有原码、反码和补码3中表示法</p>
+<ol>
+<li><p>原码</p>
+<p>最高位为符号位，其余位为数值部分。8位二进制原码表示范围为1111 1111B<del>0111 1111B（-127</del>+127）。</p>
+<p>其中，0000 0000B与1000 0000B的数值部分相同但符号相反，分别表+0和-0</p>
+</li>
+<li><p>反码</p>
+<p>正数的反码与原码相同；负数的反码为：符号位不变，原码数值部分按位取反</p>
+</li>
+<li><p>补码</p>
+<p>正数的补码与原码相同：负数的补码为：符号位不变，原码数值部分按位取反，末尾加1</p>
+</li>
+</ol>
+<h3 id="1-2-2-位、字节和字"><a href="#1-2-2-位、字节和字" class="headerlink" title="1.2.2 位、字节和字"></a>1.2.2 位、字节和字</h3><ol>
+<li><p>位（bit）</p>
+<p>计算机内部数据存储的最小单位</p>
+</li>
+<li><p>字节（Byte）</p>
+<p>计算机数据处理的基本单位</p>
+</li>
+<li><p>字（Word）</p>
+<p>计算机一次存取、加工和传送的数据长度。MCS-51单片机的字由单字节组成，字长为8</p>
+</li>
+</ol>
+<h1 id="第2章-MCS-51的结构组成"><a href="#第2章-MCS-51的结构组成" class="headerlink" title="第2章 MCS-51的结构组成"></a>第2章 MCS-51的结构组成</h1><h2 id="2-1-单片机的基本结构"><a href="#2-1-单片机的基本结构" class="headerlink" title="2.1 单片机的基本结构"></a>2.1 单片机的基本结构</h2><h3 id="2-1-1-MCS-51的内部结构"><a href="#2-1-1-MCS-51的内部结构" class="headerlink" title="2.1.1 MCS-51的内部结构"></a>2.1.1 MCS-51的内部结构</h3><img src="https://s2.loli.net/2024/03/27/DlLdT8jQCcEtmAH.jpg" alt="MCS-51单片机内部结构" style="zoom: 67%;" />
+
+<ul>
+<li>1个8位中央处理器（CPU）</li>
+<li>1个片内振荡器和时钟电路</li>
+<li>4KB片内程序存储器（ROM）</li>
+<li>256字节的片内数据存储器（RAM）</li>
+<li>2个16位定时&#x2F;计数器（T&#x2F;C）</li>
+<li>可寻址64KB程序存储空间和64KB数据存储中间的总线控制器</li>
+<li>4个8位双向并行I&#x2F;O口</li>
+<li>1个全双工串行口</li>
+<li>5个中断源</li>
+</ul>
+<hr>
+<p>​	CPU的<strong>主要功能</strong>是产生各种控制器信号，控制存储器、I&#x2F;O口的数据传送，进行数据运算、逻辑运算等。从功能上可分为<strong>控制器</strong>和<strong>运算器</strong>两部分</p>
+<h4 id="1-控制器"><a href="#1-控制器" class="headerlink" title="1. 控制器"></a>1. 控制器</h4><p>​	控制器的<strong>作用是</strong>对取自程序存储器（ROM）中的指令进行译码，在规定的时刻发出各种操作所需的控制信号，完成执行所规定的功能。其由<strong>程序计数器（PC）</strong>、<strong>指令寄存器（IR）</strong>、<strong>指令译码器（ID）</strong>、<strong>数据指针（DPTR）</strong>及定时控制与条件转移逻辑电路等组成</p>
+<ol>
+<li><p>程序计数器（Program Counter，PC）</p>
+<p>PC是个16位的专用寄存器，存放着下一条要执行指令的首地址，即PC的内容决定着程序的运行轨迹。当CPU取出指令后，PC的内容可以自动加1。系统复位后，PC的内容自动赋为0000H。</p>
+</li>
+<li><p>指令寄存器（Instruction Register，IR）</p>
+<p>IR是个8位寄存器，用于暂存待执行的指令，等待译码。</p>
+</li>
+<li><p>指令译码器（Instruction Decoder，ID）</p>
+<p>对IR中的指令进行译码，将指令转变成执行此指令所需的电信号</p>
+</li>
+<li><p>数据指针（Data Pointer，DPTR）</p>
+<p>DPTR是个16位的专用地址指令寄存器，由两个8位寄存器DPH（高8位）和DPL（低8位）拼装而成。既可以作为一个16位存储器，也可以作为两个独立的8位存储器使用。</p>
+</li>
+</ol>
+<h4 id="2-运算器"><a href="#2-运算器" class="headerlink" title="2. 运算器"></a>2. 运算器</h4><p>​	运算器由<strong>算术逻辑部件（ALU）</strong>、<strong>累加器（ACC）</strong>、<strong>程序状态字寄存器（PSW）</strong>及运算调整电路等组成。为了提高数据处理速度，片内还增加了一个<strong>通用寄存器B</strong>和一些专用寄存器与位处理逻辑电路。</p>
+<ol>
+<li><p>累加器（Accumulator，ACC）</p>
+<p>ACC是个8位寄存器，简称为A，通过暂存器与ALU相连，用来存放一个操作数或中间结果。</p>
+</li>
+<li><p>通用寄存器B（General Purpose Register）</p>
+<p>通用寄存器B是为了配合ACC进行乘法和除法运算而设置的，也是一个8位寄存器。</p>
+</li>
+<li><p>算术逻辑部件（Arithmetic Logic Unit，ALU）</p>
+<p>ALU由加法器和其他逻辑电路组成，用于对数据进行四则运算和逻辑运算等。ALU的两个操作数，一个由暂存器2输入，一个由暂存器1输入，运算结果的状态传送给PSW。</p>
+</li>
+<li><p>程序状态字寄存器（Program State Word，PSW）</p>
+<p>PSW是个8位专用寄存器，用于存放程序运行过程中的各种状态信息。</p>
+</li>
+</ol>
+<h3 id="2-1-2-MCS-51外部引脚及其功能"><a href="#2-1-2-MCS-51外部引脚及其功能" class="headerlink" title="2.1.2 MCS-51外部引脚及其功能"></a>2.1.2 MCS-51外部引脚及其功能</h3><p>采用HMOS制造工艺的51单片机一般采用40个引脚的<strong>双列直插封装</strong>（DIP）方式</p>
+<img src="https://s2.loli.net/2024/03/27/pJNz4aVKTkIvBcb.png" style="zoom: 50%;" alt="双列直插" />
+
+<p>采用CHMOS制造工艺的MCS-51单片机采用DIP封装方式外，还采用44个引脚的<strong>方形封装</strong>方式，其4个引脚是无用的。</p>
+<img src="https://s2.loli.net/2024/03/27/sSpyjJfOqgdLlxQ.png" style="zoom: 50%;" alt="方形封装" />
+
+<p>80C51采用40个引脚的DIP方式，引脚分布如下所示</p>
+<img src="https://s2.loli.net/2024/03/27/sxlUCJMt24Dr31R.png" style="zoom: 40%;" alt="80C51引脚图" />
+
+<p>80C51的40个引脚按功能划分，可分为以下3类</p>
+<ul>
+<li>电源及晶振引脚（4个）——V<sub>CC</sub>、V<sub>PP</sub>、XTAL1、XTAL2</li>
+<li>控制引脚（4个）——<span style="border-top: 1px solid;">PSEN</span>、ALE&#x2F;<span style="border-top: 1px solid;">PROG</span>、<span style="border-top: 1px solid;">EA</span>&#x2F;V<sub>PP</sub>、RST&#x2F;V<sub>PD</sub></li>
+<li>并行I&#x2F;O口引脚（32个）——P0.0-P0.7、P1.0-P1.7、P2.0-P2.7、P3.0-P3.7</li>
+</ul>
+<ol>
+<li><p><strong>电源及晶振引脚</strong></p>
+<ul>
+<li>V<sub>CC</sub>（40脚）：+5V电源引脚</li>
+<li>V<sub>PP</sub>（20脚）：接地引脚</li>
+<li>XTAL1、XTAL2（19和18脚）：外接晶振</li>
+</ul>
+</li>
+<li><p><strong>控制引脚</strong></p>
+<ul>
+<li><p>RST&#x2F;V<sub>PD</sub>（9脚），复位&#x2F;备用电源引脚</p>
+<ul>
+<li>RST：单片机上电后，其内部各寄存器处于随机状态，若在该引脚上输入满足时间要求的高电平，将使单片机复位</li>
+<li>V<sub>PD</sub>：在主电源掉电期间，可利用该引脚外接+5V备用电源为单片机片内RAM供电，保证片内RAM信息不丢失</li>
+</ul>
+</li>
+<li><p>ALE&#x2F;<span style="border-top: 1px solid;">PROG</span>（30脚），地址锁存使能输出&#x2F;编程脉冲输入引脚</p>
+<ul>
+<li>ALE：当单片机访问<strong>外部存储器</strong>时，外部存储器的16位地址信号由P0口输出低8位，P2口输出高8位，ALE可以作<strong>低8位地址锁存控制信号</strong>。当不用作外部存储器地址地址锁存信号时，该引脚仍以时钟脉冲频率的1&#x2F;6固定输出正脉冲</li>
+<li><span style="border-top: 1px solid;">PROG</span>：对含有EPROM的单片机，在进行片内EPROM编程时，需要由此输入编程脉冲</li>
+</ul>
+</li>
+<li><p><span style="border-top: 1px solid;">PSEN</span>（29脚），输出访问片外程序存储器读选通信号引脚</p>
+<p>CPU在片外ROM取指令期间，该引脚将在每个机器周期内产生两次负跳变脉冲，用作片外ROM芯片的使能信号</p>
+</li>
+<li><p><span style="border-top: 1px solid;">EA</span>&#x2F;V<sub>PP</sub>（31脚），外部ROM允许访问&#x2F;编程电源输入引脚</p>
+<ul>
+<li><span style="border-top: 1px solid;">EA</span>：当<span style="border-top: 1px solid;">EA</span>&#x3D;1或悬空时，CPU从片内ROM开始读取指令。当程序计数器PC的值超过4KB地址范围时，将自动转向片外ROM的指令。当<span style="border-top: 1px solid;">EA</span>&#x3D;0或接地时，CPU仅访问片外ROM</li>
+<li>V<sub>PP</sub>：在对含有EPROM的单片机进行编程时，此引脚应接+12V编程电压</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>并行I&#x2F;O口引脚</strong></p>
+<p>P0~P3口都可以作为通用输入&#x2F;输出（I&#x2F;O）口的使用。P0和P2还具有其他单片机地址&#x2F;数据总线的作用，P3口还具有第二功能的作用</p>
+</li>
+</ol>
+<h2 id="2-2-单片机的存储器结构"><a href="#2-2-单片机的存储器结构" class="headerlink" title="2.2 单片机的存储器结构"></a>2.2 单片机的存储器结构</h2><h3 id="2-2-1-存储器划分方法"><a href="#2-2-1-存储器划分方法" class="headerlink" title="2.2.1 存储器划分方法"></a>2.2.1 存储器划分方法</h3><p>计算机存储器地址空间有<strong>两种结构形式</strong>：普林斯顿结构和哈佛结构</p>
+<img src="https://s2.loli.net/2024/03/27/ez5rCVjTSBsNPwt.png" style="zoom: 40%;" alt="计算机存储器地址的两种结构形式" />
+
+<ul>
+<li>普林斯顿结构：也称<strong>冯·诺依曼结构</strong>，将ROM和RAM统一编址。X86、奔腾、ARM7等微处理器采用这种结构</li>
+<li>哈佛结构：ROM和RAM单独编址，ROM和RAM位于不同的存储空间。哈佛结构有利于缓解程序运行时的访问瓶颈问题。<strong>51系列</strong>、AVR系列、Z8系列等微处理器采用此结构</li>
+</ul>
+<img src="https://s2.loli.net/2024/03/27/XSYdbLx2zoegnHw.png" style="zoom:50%;" alt="MCS-51存储器空间结构" />
+
+<p>​	从<strong>物理地址</strong>上看，MCS-51单片机有<strong>4</strong>个存储空间，片内ROM、片外ROM、片内RAM、片外RAM。由于片内ROM和片外ROM是统一编址的，从<strong>逻辑地址</strong>上看，只有<strong>3</strong>个空间。</p>
+<p>​	C51语言访问片内RAM、片外RAM和ROM分别对应<code>data</code>、<code>xdata</code>和<code>code</code> 。片内ROM地址空间为0000H-0FFFH（共4KB），片外ROM地址空间为0000H-FFFFH（共64KB）；片内RAM地址空间为00H-FFH（共256B），片外RAM地址空间为0000H-FFFFH（共64KB）。</p>
+<h3 id="2-2-2-程序存储器"><a href="#2-2-2-程序存储器" class="headerlink" title="2.2.2 程序存储器"></a>2.2.2 程序存储器</h3><p>​	程序存储器（ROM）主要用于存放<strong>程序代码</strong>及<strong>程序中用到的常数</strong>。程序调试成功后，编程器将程序代码写入到ROM中。由于其<strong>只读性</strong>，程序或数据<strong>不会掉电丢失（掉电保护）</strong>。</p>
+<p>​	根据<span style="border-top: 1px solid; font-weight: 700">EA</span>引脚的不同电位，可对ROM的低4KB地址进行选择</p>
+<img src="https://s2.loli.net/2024/03/28/gldreWf6tYKNoLj.jpg" style="zoom:40%;" alt="使用两种ROM时的地址分配" />
+
+<p>​	当<span style="border-top: 1px solid;">EA</span>引脚接高电平时（A端），4KB以内的地址在片内ROM中，大于4KB的地址在片外ROM中；当<span style="border-top: 1px solid;">EA</span>引脚接低电平时（B端），片内ROM被禁用，全部64KB地址都在片外ROM中。</p>
+<p>​	在80C51的ROM中，有6个特殊地址单元是专为复位和中断功能设计的</p>
+<ul>
+<li>0000H：程序首地址，单片机复位后从此单元开始运行程序。一般在该单元存放一条<strong>跳转指令</strong>跳转到用户设计的主程序</li>
+<li>0003H：外部中断0入口地址</li>
+<li>000BH：定时&#x2F;计数器0溢出中断入口地址</li>
+<li>0013H：外部中断1入口地址</li>
+<li>001BH：定时&#x2F;计数器1溢出中断入口地址</li>
+<li>0023H：串行口中断入口地址</li>
+</ul>
+<h3 id="2-2-3-数据存储器"><a href="#2-2-3-数据存储器" class="headerlink" title="2.2.3 数据存储器"></a>2.2.3 数据存储器</h3><p>​	数据存储器（RAM）存放<strong>运行中间结果</strong>、<strong>标志位</strong>、<strong>待调试的程序</strong>等。数据<strong>掉电丢失</strong></p>
+<p>​	RAM在物理上和逻辑上都占有两个地址空间：一个是片内256B的RAM，另一个是片外最大可扩充64KB的RAM。80C51片内RAM配置如图</p>
+<img src="https://s2.loli.net/2024/03/27/TmG3Fa1Ii9SRXqU.png" style="zoom:30%;" alt="80C51片内RAM配置" />
+
+<p>​	片内RAM可分为低128B（左图）、高128B两部分，其中，<strong>低128B</strong>为普通RAM，地址为00H-7FH；<strong>高128B</strong>为特殊功能寄存器，地址为80H-FFH，其中仅21字节是有定义的。</p>
+<ul>
+<li><p><strong>低128B RAM区</strong></p>
+<ol>
+<li><p>00H~1FH</p>
+<p>32个数据存储单元可作为工作寄存器使用，分为4组，每组8个单元，按序命名为工作寄存器R0~R7。在任意时刻CPU<strong>只能选用一组</strong>工作寄存器作为当前工作寄存器组，未选中的3组可作为一般数据存储器。当前工作寄存器组通过PSW中的RS1和RS0标志位进行设置，CPU复位后默认使用第0组</p>
+<img src="https://s2.loli.net/2024/03/27/M3oCczdW1QghL6n.png" style="zoom:45%;" alt="工作寄存器的地址分配表" />
+</li>
+<li><p>20H~2FH</p>
+<p>16个字节单元，既可以像普通RAM单元一样按<strong>字节地址</strong>进行存取，又可以<strong>按位</strong>进行存取</p>
+<img src="https://s2.loli.net/2024/03/27/QbEryXJxFgDPfHa.png" style="zoom:50%;" alt="字节寻址与位寻址" />
+</li>
+<li><p>30H~7FH</p>
+<p>80个字节单元为用户RAM区，只能按字节存取。用户可以设置<strong>堆栈区</strong>和<strong>存储中间数据</strong></p>
+</li>
+</ol>
+</li>
+<li><p><strong>高128B RAM区</strong></p>
+<p>80H~FFH的区域中，离散地分布有21个特殊功能寄存器（特殊功能寄存器区）。空闲单元为后来功能增加预留空间。字节地址能<strong>被8整除</strong>的特殊功能寄存器还有<strong>位地址</strong></p>
+</li>
+</ul>
+<img src="https://s2.loli.net/2024/03/27/rTa9H6hjtzWVnOb.jpg" style="zoom:30%;" alt="SFR的名称、符号和地址分布" />
+
+<h2 id="2-3-单片机的复位与时序"><a href="#2-3-单片机的复位与时序" class="headerlink" title="2.3 单片机的复位与时序"></a>2.3 单片机的复位与时序</h2><h3 id="2-3-1-单片机的复位"><a href="#2-3-1-单片机的复位" class="headerlink" title="2.3.1 单片机的复位"></a>2.3.1 单片机的复位</h3><p>单片机在开机时需要复位，以便使CPU及其他功能部件处于一个确定的初始状态。</p>
+<p>在单片机工作过程中，如果出现死机现象，也应当使其复位，摆脱死机状态。</p>
+<img src="https://s2.loli.net/2024/03/27/h7NUxbTy4gwLEJO.jpg" style="zoom: 15%;" alt="复位时片内各寄存器的初始值" />
+
+<p><strong>单片机复位的产生条件是：</strong><span style="border-bottom:1px solid">在RST引脚出现满足复位时间要求的高电平状态</span>，该时间等于系统时钟振荡周期建立时间再加上<strong>2个机器周期时间</strong>（一般不小于10ms）</p>
+<p><strong>单片机复位的产生方式有两种</strong>：上电复位方式、按键复位方式</p>
+<ol>
+<li><p>上电复位：利用<strong>阻容充电</strong>电路实现，在单片机上电的瞬间，RST引脚的电位与V<sub>CC</sub>相同。随着充电电流减小，RST引脚的电位将逐渐下降。选择合适的电容C1和电阻R1，使其<strong>RC时间常数</strong>大于复位时间即可保证上电复位发生。</p>
+<blockquote>
+<p>RC时间常数是描述电阻-电容(RC)电路充放电过程的一个重要参数。它反映了电容电压变化到稳态值的63.2%所需的时间。在单片机的复位电路中,RC时间常数决定了复位持续的时间。</p>
+<p>RC时间常数的定义为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">τ = R × C</span><br></pre></td></tr></table></figure>
+<p>其中,τ是时间常数,单位为秒(s);R是电阻值,单位为欧姆(Ω);C是电容值,单位为法拉(F)。</p>
+<p>在RC电路的充电过程中:</p>
+<ul>
+<li>当时间t&#x3D;τ时,电容上的电压Vc达到稳态值的63.2%;</li>
+<li>当时间t&#x3D;2τ时,电容上的电压Vc达到稳态值的86.5%;</li>
+<li>当时间t&#x3D;3τ时,电容上的电压Vc达到稳态值的95.0%;</li>
+<li>当时间t&#x3D;5τ时,电容上的电压Vc达到稳态值的99.3%,可以认为已经充满。</li>
+</ul>
+<p>在单片机复位电路中,我们通常希望复位信号在上电后能够持续一段时间,以确保单片机内部电路完全稳定。这个持续时间就是由RC时间常数决定的。</p>
+<p>例如,如果复位电路中R&#x3D;8.2kΩ,C&#x3D;10µF,则时间常数τ&#x3D;8.2kΩ×10µF&#x3D;82ms。这意味着:</p>
+<ul>
+<li>上电82ms后,RST引脚电压达到VCC的63.2%;</li>
+<li>上电164ms后,RST引脚电压达到VCC的86.5%;</li>
+<li>上电246ms后,RST引脚电压达到VCC的95.0%;</li>
+<li>上电410ms后,RST引脚电压达到VCC的99.3%,复位结束。</li>
+</ul>
+<p>在实际设计中,我们通常取5τ作为复位持续的时间,以确保复位的可靠性。同时,还需要考虑电阻和电容的精度、温度特性等因素,以保证复位电路在各种工作条件下都能正常工作。</p>
+</blockquote>
+</li>
+<li><p>按键复位：利用<strong>电阻分压</strong>电路实现，当按键压下时，串联电阻R2上的分压可以使RST引脚产生高电平，抬起时产生低电平。只要按键动作产生的复位脉冲宽度大于复位时间，即可保证复位的发生。</p>
+</li>
+</ol>
+<div class="gallery-container" data-type="data" data-button="false">
+      <div class="gallery-data">[{"url":"https://s2.loli.net/2024/03/28/N9jcz1WRvpeka4g.jpg","alt":"上电复位"},{"url":"https://s2.loli.net/2024/03/28/ysmth9BOojqUY7z.jpg","alt":"按键复位"},{"url":"https://s2.loli.net/2024/03/28/btwu8B2sHmykFKE.jpg","alt":"复合复位"}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+
+<blockquote>
+<p>实际应用中，常采用上述两种方式整合在一起的复合复位做法</p>
+</blockquote>
+<h3 id="2-3-2-单片机的时序"><a href="#2-3-2-单片机的时序" class="headerlink" title="2.3.2 单片机的时序"></a>2.3.2 单片机的时序</h3><ol>
+<li><p><strong>时钟方式</strong></p>
+<p>单片机<strong>执行指令</strong>的过程可分为<span style="border-bottom:1px solid">取指令</span>、<span style="border-bottom:1px solid">分析指令</span>和<span style="border-bottom:1px solid">执行指令</span>3个步骤，每个步骤又由许多<strong>微操作</strong>组成，这些微操作必须在<strong>一个统一的时钟控制下</strong>才能按照正确的顺序执行。</p>
+<p>单片机的时钟信号可以由两种方式产生：内部时钟方式、外部时钟方式</p>
+<ul>
+<li><p>内部时钟方式（a）：利用单片机芯片内部的振荡电路实现的，通过XTAL1和XTAL2引脚外接一个用晶体振荡器和电容组成的并联谐振回路。C1和C2一般取30pF左右，主要作用是帮助振荡器起振，晶体的振荡频率范围位1.2-13MHz。<span style="border-bottom:1px solid">晶体振荡频率越高，系统的时钟频率越高，单片机运行速度也就越快</span>。</p>
+</li>
+<li><p>外部时钟方式（b）：在多片单片机组成的系统中，采用公用外部时钟信号使各个单片机之间的时钟信号严格同步。外部脉冲信号经XTAL2引脚注入。</p>
+</li>
+</ul>
+<img src="https://s2.loli.net/2024/03/28/lF5OmL74a3UTQok.jpg" style="zoom:33%;" alt="时钟引脚的接线方式" />
+</li>
+<li><p><strong>时序的概念</strong></p>
+<p>时序是指按照时间顺序显示的对象（或引脚、事件、信息）序列关系，最常用的表示方式为时序图。</p>
+<p>时序图也成为波形图或序列图，有两个坐标轴：横轴表示时间，纵轴表示不同对象的电平。</p>
+<img src="https://s2.loli.net/2024/03/28/NZg9pAD6vkBqXoP.jpg" style="zoom:33%;" alt="典型操作时序图" />
+
+<p>从图中可以看出：</p>
+<ul>
+<li>最左边是引脚标识，该图反应了RS、R&#x2F;W、E、D0-D7引脚间的时序关系</li>
+<li>交叉线部分表示电平的变化，高电平和低电平</li>
+<li>D0-D7的<strong>封闭菱形部分</strong>表示数据的有效范围（Valid Data）</li>
+<li>双箭头线段表示两个状态间的持续时间，用字母<code>t</code>加下标字符以示区别</li>
+</ul>
+<p>时序使用定时单位来描述的，MCS-51单片机的时序单位有4种：时钟周期、状态周期、机器周期和指令周期。</p>
+<img src="https://s2.loli.net/2024/03/28/4ryBKQxLqpjbCOg.jpg" style="zoom:33%;" alt="MCS-51各个周期之间的关系" />
+
+<ul>
+<li>时钟周期：晶振或外加振荡源的振荡周期称为时钟周期，用P表示。时钟周期是<strong>单片机中最小的时序单位</strong>，<span style="color: blue">1个时钟周期等于产生该时钟的晶振频率的倒数</span></li>
+<li>状态周期：1个状态周期等于2个时钟周期，既由P1和P2组成，用S表示</li>
+<li>机器周期：1个机器周期等于6个状态周期（12个时钟周期）</li>
+<li>指令周期：执行一条执行所需要的时间称为指令周期。1个指令周期由1-4个机器周期组成，指令周期是<strong>单片机中最大的时序单位</strong></li>
+</ul>
+</li>
+<li><p><strong>时序逻辑电路</strong></p>
+<p>单片机时序就是<strong>CPU在执行指令时所需的控制信号的时间顺序</strong>，CPU实质上是一个复杂的同步时序电路，在时钟信号的推动下工作。</p>
+<p>从用途看，CPU发出的时序信号可分为两类：</p>
+<ul>
+<li>片内各功能部件的控制（不必了解）</li>
+<li>片外存储器或I&#x2F;O口的控制：需要通过单片机的控制引脚送到片外单元，本节仅介绍D触发器。</li>
+</ul>
+<p><strong>D触发器</strong>又称边沿D触发器（或维持-阻塞边沿D触发器），可分为正边沿和负边沿D触发器两类。</p>
+<ul>
+<li><p>正边沿D触发器</p>
+<p>原理图如下所示，（a）为正边沿D触发器的电路符号，包括输入端D、时钟端CLK、输出端Q和输出端<span style="border-top:1px solid">Q</span>。（b）为时序波形图</p>
+<img src="https://s2.loli.net/2024/03/28/XQIqyVA1jnlD9pE.jpg" style="zoom:35%;" alt="正边沿D触发器" />
+
+<p>正边沿D触发器只在时钟脉冲<strong>CLK正边沿</strong>到来的时刻，才采样D端的输入信号，并据此立即改变Q和<span style="border-top:1px solid">Q</span>端的输出状态。而在其他时刻，D与Q是信号隔离的。</p>
+</li>
+<li><p>负边沿D触发器</p>
+<p>原理和正边沿D触发器类似，只不过在时钟脉冲<strong>CLK负边</strong>沿到来时刻，才采样D端的输入信号</p>
+<img src="https://s2.loli.net/2024/03/28/VP9l6uQaSfkLU2W.jpg" style="zoom:66%;" alt="负边沿D触发器" /></li>
+</ul>
+</li>
+</ol>
+<h2 id="2-4-单片机并行I-O口"><a href="#2-4-单片机并行I-O口" class="headerlink" title="2.4 单片机并行I&#x2F;O口"></a>2.4 单片机并行I&#x2F;O口</h2><h3 id="2-4-1-P1口"><a href="#2-4-1-P1口" class="headerlink" title="2.4.1 P1口"></a>2.4.1 P1口</h3><p>P1口由P1.0～P1.7共8个接口电路组成，下图是其中一位P1.n的结构原理图</p>
+<img src="https://s2.loli.net/2024/03/28/mnqwtZrKBflNDu8.jpg" style="zoom:25%;" alt="P1.n的结构原理图" />
+
+<ol>
+<li>P1口中的8个D触发器构成了可存储8位二进制码的P1口<strong>锁存器</strong>（特殊功能寄存器），字节地址为90H</li>
+<li><strong>场效应管</strong>V与<strong>上拉电阻</strong>R组成输出驱动器，增大P1口带负载能力</li>
+<li><strong>三态门</strong>1和2在输入和输出时作为缓冲器作用</li>
+</ol>
+<p>P1口作为通用I&#x2F;O口使用，具有输出、读引脚、读锁存器3种工作方式。</p>
+<ul>
+<li><p>输出方式</p>
+<p>单片机执行<span style="border-bottom:1px solid">向P1口写数据指令</span>时，如P1&#x3D;0x2b。根据D触发器原理，由内部总线送到锁存器D端的数据，在“写锁存器”的除法信号（CLK）控制下传送给Q端，Q&#x3D;D。触发脉冲结束后，<strong>Q端不再跟随D端变化但仍保持先前数据不变（锁存功能）</strong>。此后会有两种结果：</p>
+<ul>
+<li>Q&#x3D;1→<span style="border-top:1px solid">Q</span>&#x3D;0→场效应管V因栅极的0电平而截止→漏极电平&#x3D;V<sub>CC</sub>→引脚P1.n&#x3D;1</li>
+<li>Q&#x3D;0→<span style="border-top:1px solid">Q</span>&#x3D;1→场效应管V因栅极的1电平而导通→漏极相当于对地短路→引脚P1.n&#x3D;0</li>
+</ul>
+<p>内部总线电平可以由P1口输出，也可以锁存在P1口中。</p>
+</li>
+<li><p>读引脚方式</p>
+<p>单片机执行<span style="border-bottom: 1px solid">从P1口读数据并存到变量val</span>指令时，如val&#x3D;P1。此时引脚P1.n电平在“读引脚”控制下经过三态门1后到达内部总线（val中），此时会有两种结果：</p>
+<ul>
+<li>P1.n的值为0→val&#x3D;0（与场效应管V无关）</li>
+<li>P1.n的值为1且场效应管V处于导通状态（如曾执行过写0指令）→val&#x3D;0（出现错误）</li>
+</ul>
+<p>上述第二种结果发生是因为<strong>导通的V会使P1.n的电平钳制为0</strong>。为避免这一情况，读引脚前需执行一条写1指令强迫V截止。P1口作为输出口是无条件的，但<strong>作为输入口是有条件的</strong>，所以P1被称为<strong>准双向口</strong>。</p>
+</li>
+<li><p>读锁存器方式</p>
+<p>单片机执行<span style="border-bottom: 1px solid">“读—改—写”</span>类的指令时，如P1++。在”读锁存器“控制下，Q端电平经过三态门2读入内部总线→在运算器中进行+1运算→结果重新写到Q端（同时也输出到P1.n引脚）</p>
+</li>
+</ul>
+<p><strong>读锁存器和读引脚的效果是不同的</strong>，前者是为了获得前次的锁存值，后者则是为了获得引脚上（外部数据）上的当前值。</p>
+<p>P1口能驱动<strong>4个LS TTL负载</strong>。通常将100μA的电流定义为一个LS TTL负载的电流。P1口内已有内部上大电阻，无需外接。</p>
+<blockquote>
+<p>在单片机的背景下,LS TTL负载具有不同的含义。</p>
+<p>LS是指低功耗斯密特触发器(Low-power Schmmitt Trigger)的缩写。TTL则是指晶体管-晶体管逻辑(Transistor-Transistor Logic)电路的一种常见逻辑家族。</p>
+<p>因此,在单片机中LS TTL负载指的是:</p>
+<ol>
+<li><p>LS - 低功耗斯密特触发器,是一种具有较宽噪声裕量、低功耗特性的数字逻辑电路。</p>
+</li>
+<li><p>TTL - 指传统的晶体管-晶体管逻辑电路家族,工作电压通常为5V。</p>
+</li>
+<li><p>负载 - 指单片机的I&#x2F;O口外连接的电路负载,如LED灯、继电器等。</p>
+</li>
+</ol>
+<p>当单片机需要驱动一些较大的电流负载时,像LED等,由于单片机I&#x2F;O口驱动能力有限,通常需要外加放大电路。这时可以使用LS TTL器件作为放大驱动电路,它能够将单片机I&#x2F;O口的低电流信号放大为能够驱动较大负载的电流。</p>
+<p>总之,在单片机领域,LS TTL负载是指使用低功耗斯密特触发器TTL逻辑电路,作为外部负载的驱动放大器,以驱动一些较大的电流负载。这是由于单片机本身I&#x2F;O口驱动能力有限的原因。</p>
+</blockquote>
+<h3 id="2-4-2-P3口"><a href="#2-4-2-P3口" class="headerlink" title="2.4.2 P3口"></a>2.4.2 P3口</h3><p>下图为P3口其中一位P3.n的结构原理图</p>
+<img src="https://s2.loli.net/2024/03/28/rEdYXRo1zMWxNwj.jpg" style="zoom:30%;" alt="P3.n的结构原理图" />
+
+<p>8个D触发器构成了P3口锁存器（特殊功能寄存器），字节地址为B0H。与P1口相比，P3口结构中多了<strong>与非门B</strong>和<strong>缓冲器T</strong>。P3口除具有通过I&#x2F;O口功能外，还具有第二功能。</p>
+<ul>
+<li><p>”第二输出功能“端保持“1”状态时，与非门B对锁存器Q端是畅通的，此时P3口工作在通用I&#x2F;O口方式，即P3.n具有与P1.n相同的3个基本功能，仍为准双向口。</p>
+<blockquote>
+<p>Q&#x3D;1→B输出0→V截止→P3.n&#x3D;1</p>
+<p>Q&#x3D;0→B输出1→V导通→P3.n&#x3D;0</p>
+</blockquote>
+</li>
+<li><p>锁存器Q端保持“1”状态时，与非门B对“第二<strong>输出</strong>功能”端保持一致，即“第二输出功能“端分别为1和0时，P3.n可分别输出1和0。</p>
+<p>”第二<strong>输入</strong>功能“端的输入值与经由缓冲器T的P3.n引脚电平保持一致，即P3.n分别为1和0时，”第二<strong>输入</strong>功能“端也分别为1和0</p>
+</li>
+</ul>
+<p>P3口的第二功能定义如下表</p>
+<img src="https://s2.loli.net/2024/03/29/8pFlZA9jeb6qxnr.jpg" style="zoom:30%;" alt="P3口第二功能定义" />
+
+<h3 id="2-4-3-P0口"><a href="#2-4-3-P0口" class="headerlink" title="2.4.3 P0口"></a>2.4.3 P0口</h3><p>下图为P0口其中一位P0.n的结构原理图</p>
+<img src="https://s2.loli.net/2024/03/29/NubHgvLwyUz5ZJS.jpg" style="zoom:35%;" alt="P0.n结构原理图" />
+
+<p>8个D触发器构成了P0口锁存器（特殊功能寄存器），字节地址为80H。P0口的<strong>输出驱动电路</strong>由<span style="border-bottom: 1px solid">上拉场效应管V2</span>和<span style="border-bottom: 1px solid">驱动场效应管V1</span>组成；<strong>控制电路</strong>包括1个<span style="border-bottom: 1px solid">与门A</span>、1个<span style="border-bottom: 1px solid">非门X</span>和一个<span style="border-bottom: 1px solid">多路开关MUX</span>，其余组成与P1口相同。</p>
+<p>P0口既可以作为通用的I&#x2F;O口，也可以作为单片机系统的地址&#x2F;数据线使用。在CPU的控制信号作用下，多路开关MUX可以分别接通<strong>锁存器输出</strong>和<strong>地址&#x2F;数据输出</strong>。</p>
+<ul>
+<li><p>P0口作为通用I&#x2F;O口使用时</p>
+<p>”控制“端保持”0“电平→封锁与门A（恒定输出0）→上拉场效应管V2截止→V1漏极开路（等效电路如下图）；</p>
+<p>”控制“端为0→多路开关MUX连接<span style="border-top:1px solid">Q</span>端。此时P0口与P1口同样有3中工作方式，准双向通用I&#x2F;O口，但由于V1漏极开路，要使D端正常输出”1“，必须外接<strong>上拉电阻</strong>（100Ω～10kΩ）</p>
+<img src="https://s2.loli.net/2024/03/29/SHQVWZUMdx4mfTX.jpg" style="zoom:28%;" alt="外接上拉电阻后的等效电路图"/>
+</li>
+<li><p>P0口连接外部存储器时</p>
+<p>”控制“端保持”1“电平→打开与门A（控制权交给”地址&#x2F;数据“端）→V2导通</p>
+<p>”控制“端为1→多路开关MUX连接非门X。此时P0口工作在<strong>地址&#x2F;数据分时复用方式</strong></p>
+<ul>
+<li><p>CPU需要<strong>输出</strong>地址和数据信息时：”地址&#x2F;数据“端电平会与引脚P0.n电平保持一致，实现了地址或数据输出到P0.n功能。</p>
+<blockquote>
+<p>“地址&#x2F;数据”为1→与门A输出”1“→V2导通→P0.n&#x3D;1</p>
+<p>“地址&#x2F;数据”为0→与门A输出“0”→V2封闭，同时非门X输出1→V1导通→P0.n&#x3D;0</p>
+</blockquote>
+</li>
+<li><p>CPU需要<strong>输入</strong>P0.n的数据时：CPU会自动使“地址&#x2F;数据”端切换为“1”电平，以使V1截止，确保P0.n的数据不会被误读。因而<strong>地址&#x2F;数据分时复用方式时的P0口是真正的双向口。</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>P0口能以吸收电流的方式驱动8个LS TTL负载，即灌电流不大于800μA。</p>
+<h3 id="2-4-4-P2口"><a href="#2-4-4-P2口" class="headerlink" title="2.4.4 P2口"></a>2.4.4 P2口</h3><p>下图为P2口其中一位P2.n的结构原理图</p>
+<img src="https://s2.loli.net/2024/03/29/CJ82P9UmhRS67nc.jpg" style="zoom:33%;" alt="P2.n结构原理图" />
+
+<p>8个D触发器构成了P2口锁存器（特殊功能寄存器），字节地址为A0H。与P1口相比，P2口中多了一个多路开关MUX，实现<strong>通用I&#x2F;O口</strong>和<strong>地址输出</strong>两种功能。</p>
+<ul>
+<li><p>P2口用作通用I&#x2F;O口时，在“控制”端作用下，MUX转向锁存器Q端（向下），构成一个准双向口，具备输出、读引脚和读锁存器功能</p>
+</li>
+<li><p>单片机访问片外RAM或片外ROM指令时，PC（程序计数器）或DPTR（数据指针）的高8位地址需由P2.n引脚输出。此时，MUX在CPU的控制下转向”地址“端（向上），”地址“端信号通过P2.n输出。</p>
+<blockquote>
+<p>”地址“端为1→非门X输出”0“→V封闭→P2.n&#x3D;1</p>
+<p>”地址“端为0→非门X输出”1“→V导通→P2.n&#x3D;0</p>
+</blockquote>
+</li>
+</ul>
+<p>P2口的负载能力和P1口相同，驱动4个LS  TTL负载。</p>
+<div class="note success no-icon flat"><p>P0～P3口都可以作为准双向通用I&#x2F;O口提供给用户，其中P1～P3无需外接上拉电阻；在需要扩展片外存储器时，P2口可作为其地址线接口，P0口可作为其地址&#x2F;数据线复用接口，此时P0口是真正的双向口</p>
+</div>
+
+<h2 id="2-5-绘制Proteus原理图"><a href="#2-5-绘制Proteus原理图" class="headerlink" title="2.5 绘制Proteus原理图"></a>2.5 绘制Proteus原理图</h2><img src="https://s2.loli.net/2024/03/29/5tFM3fOVhau8ZNg.jpg" style="zoom: 50%;" />
+
+<h1 id="第3章-C51编程语言基础"><a href="#第3章-C51编程语言基础" class="headerlink" title="第3章 C51编程语言基础"></a>第3章 C51编程语言基础</h1><p>51单片机有两种常用的编程语言：A51<strong>汇编语言</strong>和<strong>C51语言</strong>。</p>
+<ul>
+<li><p>A51汇编语言</p>
+<p>是一种面向机器的编程语言，能直接操作51单片机的硬件资源，<strong>优点是</strong>指令效率高、执行速度快。但A51汇编语言属于低级编程语言，程序可读性差，编程工作量大。</p>
+</li>
+<li><p>C51语言</p>
+<p>51单片机设计的一种高级编程语言，属于标准C语言的一个子集，<strong>优点是</strong>可读性强、易于调试维护、编程工作量小。</p>
+</li>
+</ul>
+<h2 id="3-1-编译工具"><a href="#3-1-编译工具" class="headerlink" title="3.1 编译工具"></a>3.1 编译工具</h2><h3 id="3-1-1-源程序开发过程"><a href="#3-1-1-源程序开发过程" class="headerlink" title="3.1.1 源程序开发过程"></a>3.1.1 源程序开发过程</h3><p>C51采用的是<strong>编译型执行</strong>方式（源程序全部转换为目标代码后再执行）的源程序开发，过程如下图所示。</p>
+<img src="https://s2.loli.net/2024/04/01/gMATw5p9rQPubdX.jpg" style="zoom:25%;" alt="C51源程序的开发过程" />
+
+<p>图中，方框表示开发环节，圆框表示参与开发过程的程序文件。</p>
+<h3 id="3-1-2-Source-Code工作界面"><a href="#3-1-2-Source-Code工作界面" class="headerlink" title="3.1.2  Source Code工作界面"></a>3.1.2  Source Code工作界面</h3><img src="https://s2.loli.net/2024/04/01/P4JyIZcha59BpUF.jpg" style="zoom: 60%;" alt="编程界面" />
+
+<h3 id="3-1-3-Source-Code基本用法"><a href="#3-1-3-Source-Code基本用法" class="headerlink" title="3.1.3 Source Code基本用法"></a>3.1.3 Source Code基本用法</h3><h2 id="3-2-基本执行语句"><a href="#3-2-基本执行语句" class="headerlink" title="3.2 基本执行语句"></a>3.2 基本执行语句</h2><h3 id="3-2-1-表达式语句"><a href="#3-2-1-表达式语句" class="headerlink" title="3.2.1 表达式语句"></a>3.2.1 表达式语句</h3><h3 id="3-2-2-选择语句"><a href="#3-2-2-选择语句" class="headerlink" title="3.2.2 选择语句"></a>3.2.2 选择语句</h3><h3 id="3-2-3-循环语句"><a href="#3-2-3-循环语句" class="headerlink" title="3.2.3 循环语句"></a>3.2.3 循环语句</h3><h3 id="3-2-4-注释语句"><a href="#3-2-4-注释语句" class="headerlink" title="3.2.4 注释语句"></a>3.2.4 注释语句</h3><h2 id="3-3-变量"><a href="#3-3-变量" class="headerlink" title="3.3 变量"></a>3.3 变量</h2><h3 id="3-3-1-变量概述"><a href="#3-3-1-变量概述" class="headerlink" title="3.3.1 变量概述"></a>3.3.1 变量概述</h3><h3 id="3-3-2-变量名"><a href="#3-3-2-变量名" class="headerlink" title="3.3.2 变量名"></a>3.3.2 变量名</h3><h3 id="3-3-3-数据类型"><a href="#3-3-3-数据类型" class="headerlink" title="3.3.3 数据类型"></a>3.3.3 数据类型</h3><ol>
+<li><p>标准C语言传承的数据类型</p>
+</li>
+<li><p><strong>C51特有的数据类型</strong></p>
+<ul>
+<li><p>bit类型</p>
+<p>51单片机中由许多按位（bit）进行读&#x2F;写操作的存储单元，如片内低128B RAM中字节地址为20H～2FH的区间，可存放0x00～0x7f共128个<strong>位存储单元</strong>。每个位存储单元的值只能是0或1。</p>
+</li>
+<li><p>sfr类型</p>
+<p>80C51的高128B RAM中有21个特殊功能寄存器（SFR），除DPTR为16位寄存器外，其余都是8位寄存器，每个SFR都有特定的<strong>字节地址</strong>，部分SFR中还有独立的<strong>位地址</strong>（详见2.2.3节），C51采用两种专属的变量类型说明符，<strong>sfr</strong>（sfr16）和<strong>sbit</strong>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sfr P1 = <span class="number">0x90</span>;		<span class="comment">// 指定变量P1为sfr类型，对应地址为0x90</span></span><br><span class="line">sfr PSW = <span class="number">0xd0</span>;</span><br><span class="line">sfr16 DPTR = <span class="number">0x82</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sbit类型</p>
+<p>sbit用于定义SFR中具有位地址变量的类型说明符，有以下3种不同用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. sbit 位变量名=位地址</span><br><span class="line">2. sbit 位变量名=可位寻址的SFR字节地址^相对位置</span><br><span class="line">3. sbit 位变量名=可位寻址变量^相对位置</span><br></pre></td></tr></table></figure>
+
+<p>以下以定义变量CY（PSW中的进位标志位）说明3中用法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sbit CY = <span class="number">0xd7</span>;		<span class="comment">// 已有明确的位地址</span></span><br><span class="line">sbit CY = <span class="number">0xd0</span>^<span class="number">7</span>;	<span class="comment">// PSW的字节地址为0xd0</span></span><br><span class="line">sbit CY = PSW^<span class="number">7</span>;	<span class="comment">// 如果变量PSW已用sfr PSW = 0xd0;定义过</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>sfr和sbit都必须定义为全局变量，即必须在所有C51函数之前进行定义。</p>
+</blockquote>
+<img src="https://s2.loli.net/2024/04/01/9oRfxdZH3Yw85PK.jpg" style="zoom:50%;" alt="C51常用数据类型一览表" />
+
+<p><code>bit</code>和<code>unsigned char</code>这两种数据类型都可以直接支持单片机机器指令，因此代码的执行效率最高。</p>
+<h3 id="3-3-4-存储类型"><a href="#3-3-4-存储类型" class="headerlink" title="3.3.4 存储类型"></a>3.3.4 存储类型</h3><p>80C51具有3个逻辑存储空间：片内低128B RAM、片外64KB RAM和片内外统一编址的64KB ROM，对于80C52还具有片内高128B RAM空间。</p>
+<p>为了合理使用51单片机的存储空间，需要进一步细化存储区域的组成，C51将3个逻辑存储空间细分成6个存储类型区，如下图。</p>
+<img src="https://s2.loli.net/2024/04/01/F6G8KvSxZCoTqan.jpg" style="zoom: 40%;" alt="存储空间与存储类型的关系示意图" />
+
+<p>片内低128B RAM空间被分为<code>data</code>和<code>bdata</code>两个存储区，80C52单片机专有的高128B RAM被称为<code>idata</code>区域，片内外统一ROM空间被称为<code>code</code>存储区，片外RAM空间被分为<code>xdata</code>和<code>pdata</code>两个存储区。C51的存储类型与存储空间对应关系见下表。</p>
+<img src="https://s2.loli.net/2024/04/01/hVjYgZpWmkuqtPE.jpg" style="zoom:80%;" />
+
+<p>变量在定义时，只有将其数据类型和存储类型的信息都站现在变量定义式中，才能保证编译器顺利工作。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> data cc = <span class="number">0x15</span>;	<span class="comment">// 指定变量cc为无符号字符型变量，存储单元位于片内低128B RAM中</span></span><br><span class="line"><span class="type">int</span> xdata xy;	<span class="comment">// 指定变量xy为有符号整型变量，存储单元位于片外64KB RAM中</span></span><br></pre></td></tr></table></figure>
+
+<p>实际应用中，小型系统只需使用片内RAM即可，大型系统则需要扩展片外RAM。为此，C51编译器设立了3中编译模式：SMALL（小型）、COMPACT（紧凑）、LARGE（大型）。如下图所示，在SMALL编译模式下，如果变量定义语句种省略了存储类型参数，则系统默认采用<code>data</code>存储类型，COMPACT和LARGE同理。</p>
+<img src="https://s2.loli.net/2024/04/01/Z9r57vt3OKYNeSA.jpg" style="zoom:90%;" alt="3种编译模式的相互关系" />
+
+<h3 id="3-3-5-存储种类"><a href="#3-3-5-存储种类" class="headerlink" title="3.3.5 存储种类"></a>3.3.5 存储种类</h3><ol>
+<li><p>自动型（auto）</p>
+<p><strong>作用域</strong>是在定义该变量的函数体或语句组内。当函数调用结束或语句组执行完毕，自动型变量所占用的存储空间就被释放。<strong>默认选项</strong></p>
+</li>
+<li><p>静态型（static）</p>
+<p><strong>作用域</strong>是定义它的函数体、程序文件或语句组内。静态型变量具有变量的<strong>隐藏性</strong>、<strong>存储持久</strong>性和<strong>默认0</strong>储值3个特点。</p>
+</li>
+<li><p>外部型（extern）</p>
+<p>如果变量的定义与使用不在同一作用域内，则用extern声明后就能将原作用域扩展到声明所在的位置，从而将变量值带到新的作用域内。</p>
+</li>
+<li><p>寄存器型（register）</p>
+<p>如果变量在使用种需要<strong>频繁地与内存进行数据交换</strong>，可以通过register定义将变量的存储单元指定为寄存器。</p>
+</li>
+</ol>
+<h2 id="3-4-指针"><a href="#3-4-指针" class="headerlink" title="3.4 指针"></a>3.4 指针</h2><h2 id="3-5-数组"><a href="#3-5-数组" class="headerlink" title="3.5 数组"></a>3.5 数组</h2><ol start="2">
+<li><p><strong>指针法引用数据元素</strong></p>
+<p>若将一个变量用来存放一个数组的的起始地址，则这个变量就是指向数组的指针变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>];			<span class="comment">// 定义a为包含10个整型元素的数组</span></span><br><span class="line"><span class="type">int</span> *app = &amp;a[<span class="number">0</span>];	<span class="comment">// 定义app为指向整型数组a的指针变量</span></span><br></pre></td></tr></table></figure>
+
+<p>数组名就是为数组分配的连续存储单元的首地址，因而上述第二条语句等价于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *app = a;</span><br></pre></td></tr></table></figure>
+
+<p>实例：利用指针法计算10～19的平均值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i, a[<span class="number">10</span>]=&#123;<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>&#125;;</span><br><span class="line"><span class="type">int</span> *app;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> result = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(app=a;app&lt;(a+<span class="number">10</span>);app++)</span><br><span class="line">		result+=*app;</span><br><span class="line">	result/=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="3-6-函数"><a href="#3-6-函数" class="headerlink" title="3.6 函数"></a>3.6 函数</h2><p> C51函数定义语句称为函数头或函数首部，定义函数的语法格式如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(返回值类型) 函数名((形式参数)) (编译模式) (reentrant) (interrupt x) (using y)</span><br></pre></td></tr></table></figure>
+
+<img src="https://s2.loli.net/2024/04/01/hZ5cAjEQLVlnatH.jpg" style="zoom: 75%;" alt="各项含义一览表" />
+
+<h1 id="第4章-通用I-O口方式应用"><a href="#第4章-通用I-O口方式应用" class="headerlink" title="第4章 通用I&#x2F;O口方式应用"></a>第4章 通用I&#x2F;O口方式应用</h1><h2 id="4-1-独立按键识别"><a href="#4-1-独立按键识别" class="headerlink" title="4.1 独立按键识别"></a>4.1 独立按键识别</h2><div class="note primary flat"><p>开始时LED均为熄灭状态，随后根据按键动作点亮对应LED（在按键释放后能继续保持亮灯状态，直到新的按键压下为止）</p>
+</div>
+
+<img src="https://s2.loli.net/2024/04/03/6dkPheDUE2pXALb.jpg" style="zoom: 50%;" alt="4.1电路图" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123; </span><br><span class="line">	uchar key = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">		key = P0 &amp; <span class="number">0x0f</span>;</span><br><span class="line">		<span class="keyword">if</span> (key != <span class="number">0x0f</span>) </span><br><span class="line">			P2 = key;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-键控流水灯"><a href="#4-2-键控流水灯" class="headerlink" title="4.2 键控流水灯"></a>4.2 键控流水灯</h2><div class="note primary flat"><p>在4.1电路图基础上，当K1按下时，流水灯从下往上；K2按下停止，且全部灯灭；K3按下使灯从下往上；K4按下使灯从上往下</p>
+</div>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line">uchar code led[] = &#123;<span class="number">0xf7</span>, <span class="number">0xfb</span>, <span class="number">0xfd</span>, <span class="number">0xfe</span>&#125;;</span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uchar time)</span> &#123;</span><br><span class="line">	uint j = <span class="number">15000</span>;</span><br><span class="line">	<span class="keyword">for</span>(; time&gt;<span class="number">0</span>; time--)</span><br><span class="line">		<span class="keyword">for</span>(; j&gt;<span class="number">0</span>; j--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">char</span> i;	 <span class="comment">// 如果 i 定义为无符号类型，则下面for循环中 i-- 会使 i=255，造成数组越界</span></span><br><span class="line">	bit dir=<span class="number">0</span>, run=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">switch</span>(P0 &amp; <span class="number">0x0f</span>) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0x0e</span>: run=<span class="number">1</span>,dir=<span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0x0d</span>: run=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0x0b</span>: dir=<span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0x07</span>: dir=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(run) &#123;</span><br><span class="line">			<span class="keyword">if</span>(dir) &#123;</span><br><span class="line">				<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;=<span class="number">3</span>; i++) &#123;</span><br><span class="line">					P2=led[i];</span><br><span class="line">					delay(<span class="number">200</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">for</span>(i=<span class="number">3</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">					P2=led[i];</span><br><span class="line">					delay(<span class="number">200</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			P2=<span class="number">0xff</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-流水灯控制"><a href="#4-3-流水灯控制" class="headerlink" title="4.3 流水灯控制"></a>4.3 流水灯控制</h2><div class="note primary flat"><p>P2口连接8个低电平驱动LED，采用循环移位法，从D8到D1依次点亮后熄灭</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>函 数 名</th>
+<th align="left">函 数 声 明</th>
+<th align="left">功 能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_crol_</td>
+<td align="left">uchar _crol_(uchar,uchar);</td>
+<td align="left">将字符型数据按照二进制循环左移n位</td>
+</tr>
+<tr>
+<td>_irol_</td>
+<td align="left">uint _irol_(uint,uchar);</td>
+<td align="left">将整型数据按照二进制循环左移n位</td>
+</tr>
+<tr>
+<td>_lrol_</td>
+<td align="left">ulong _lrol_(ulong ,uchar);</td>
+<td align="left">将长整型数据按照二进制循环左移n位</td>
+</tr>
+<tr>
+<td>_cror_</td>
+<td align="left">uchar _cror_(uchar,uchar);</td>
+<td align="left">将字符型整数按照二进制循环右移n位</td>
+</tr>
+<tr>
+<td>_iror_</td>
+<td align="left">uint _iror_(uchar,uchar);</td>
+<td align="left">将整型数据按照二进制循环右移n位</td>
+</tr>
+<tr>
+<td>_lror_</td>
+<td align="left">ulong _lror_(ulong ,uchar);</td>
+<td align="left">将长整型数据按照二进制循环右移n位</td>
+</tr>
+<tr>
+<td>_nop_</td>
+<td align="left">void _nop_(uchar _sfr);</td>
+<td align="left">使单片机程序产生延时</td>
+</tr>
+<tr>
+<td>_testbit_</td>
+<td align="left">bit _testbit_ (bit);</td>
+<td align="left">对字节中的一位进行测试</td>
+</tr>
+</tbody></table>
+<img src="https://s2.loli.net/2024/04/03/sHqvREZ7S2pf3jC.jpg" style="zoom: 75%;" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">()</span> &#123;</span><br><span class="line">	uchar i, j;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;=<span class="number">100</span>; i++)</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;=<span class="number">200</span>; j++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	P2 = <span class="number">0x7f</span>;</span><br><span class="line">	delay();</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">		P2=_cror_(P2,<span class="number">1</span>);	<span class="comment">// 将字符型数据按照二进制循环向右移n位</span></span><br><span class="line">		delay();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-LED数码管显示"><a href="#4-4-LED数码管显示" class="headerlink" title="4.4 LED数码管显示"></a>4.4 LED数码管显示</h2><div class="note primary flat"><p>8位数码管，其中P0口与共阴极数码管的段码引脚相连，实现循环显示0～9字符</p>
+</div>
+
+<img src="https://s2.loli.net/2024/04/03/ZYCpEIDyfi37kvQ.jpg" style="zoom:75%;" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> led_mod[]=&#123;<span class="number">0xbf</span>,<span class="number">0x86</span>,<span class="number">0xdb</span>,<span class="number">0xcf</span>,<span class="number">0xe6</span>,<span class="number">0xed</span>,<span class="number">0xfd</span>,<span class="number">0x87</span>,<span class="number">0xff</span>,<span class="number">0xef</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uint time)</span></span><br><span class="line">&#123;</span><br><span class="line">	uint j;</span><br><span class="line">	<span class="keyword">for</span>(;time&gt;<span class="number">0</span>;time--)</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">125</span>;j++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">char</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			P0=led_mod[i];</span><br><span class="line">			delay(<span class="number">500</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-计数显示器"><a href="#4-5-计数显示器" class="headerlink" title="4.5 计数显示器"></a>4.5 计数显示器</h2><div class="note primary flat"><p>数码管显示初值为0，单击按键后，按增量1进行累加，累加值实时显示在数码管上。累加到99时，清空</p>
+</div>
+
+<img src="https://s2.loli.net/2024/04/03/S3KIkoR5HFnL4Ww.jpg" style="zoom:75%;" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line">sbit P3_7=P3^<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">uchar code table[]=&#123;<span class="number">0x3f</span>,<span class="number">0x06</span>,<span class="number">0x5b</span>,<span class="number">0x4f</span>,<span class="number">0x66</span>,<span class="number">0x6d</span>,<span class="number">0x7d</span>,<span class="number">0x07</span>,<span class="number">0x7f</span>,<span class="number">0x6f</span>&#125;;</span><br><span class="line">uchar count;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uint time)</span></span><br><span class="line">&#123;</span><br><span class="line">	uint j;</span><br><span class="line">	<span class="keyword">for</span>(;time&gt;<span class="number">0</span>;time--)</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">125</span>;j++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	count=<span class="number">0</span>;</span><br><span class="line">	P0=table[count/<span class="number">10</span>];	<span class="comment">// 十位</span></span><br><span class="line">	P2=table[count%<span class="number">10</span>];	<span class="comment">// 个位</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(P3_7==<span class="number">0</span>)			<span class="comment">// 检测按键是否被按下</span></span><br><span class="line">		&#123;</span><br><span class="line">			delay(<span class="number">10</span>);		<span class="comment">// 消抖延时</span></span><br><span class="line">			<span class="keyword">if</span>(P3_7==<span class="number">0</span>)		<span class="comment">// 确认按键被按下</span></span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">				<span class="keyword">if</span>(count==<span class="number">100</span>) count=<span class="number">0</span>;</span><br><span class="line">				P0=table[count/<span class="number">10</span>];	<span class="comment">// 十位</span></span><br><span class="line">				P2=table[count%<span class="number">10</span>];	<span class="comment">// 个位</span></span><br><span class="line">				<span class="keyword">while</span>(P3_7==<span class="number">0</span>);		<span class="comment">// 等待按键松开，防止连续计数</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-6-数码管动态显示"><a href="#4-6-数码管动态显示" class="headerlink" title="4.6 数码管动态显示"></a>4.6 数码管动态显示</h2><div class="note primary flat"><p>采用动态显示原理显示字符“L2”</p>
+</div>
+
+<img src="https://s2.loli.net/2024/04/03/yg5KA8UadGcvChk.jpg" style="zoom:80%;" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line">uchar led_mode[] = &#123;<span class="number">0x38</span>, <span class="number">0x5b</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uint time)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">char</span> led_point=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		P3=<span class="number">2</span>-led_point;			<span class="comment">// 输出LED位码</span></span><br><span class="line">		P2=led_mode[led_point];</span><br><span class="line">		led_point=<span class="number">1</span>-led_point;	<span class="comment">// 刷新LED位码</span></span><br><span class="line">		delay(<span class="number">30</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uint time)</span></span><br><span class="line">&#123;</span><br><span class="line">	uchar j;</span><br><span class="line">	<span class="keyword">for</span>(;time&gt;<span class="number">0</span>;time--)</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">125</span>;j++);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-7-矩阵键盘"><a href="#4-7-矩阵键盘" class="headerlink" title="4.7 矩阵键盘"></a>4.7 矩阵键盘</h2><div class="note primary flat"><p>开机后数码管暂为黑屏状态，按下任意键后数码管立即显示该键对应的字符（0～F）。若没有新键按下，维持前次结果</p>
+</div>
+
+<img src="https://s2.loli.net/2024/04/03/RP3CFwLYbUdHWBQ.jpg" style="zoom:75%;" />
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> led_mod[]=&#123;<span class="number">0x3f</span>,<span class="number">0x06</span>,<span class="number">0x5b</span>,<span class="number">0x4f</span>,<span class="number">0x66</span>,<span class="number">0x6d</span>,<span class="number">0x7d</span>,<span class="number">0x07</span>,</span><br><span class="line">				<span class="number">0x7f</span>,<span class="number">0x6f</span>,<span class="number">0x77</span>,<span class="number">0x7c</span>,<span class="number">0x58</span>,<span class="number">0x5e</span>,<span class="number">0x79</span>,<span class="number">0x71</span>&#125;;</span><br><span class="line"><span class="type">char</span> key_buf[]=&#123;<span class="number">0xee</span>,<span class="number">0xde</span>,<span class="number">0xbe</span>,<span class="number">0x7e</span>,</span><br><span class="line">				<span class="number">0xed</span>,<span class="number">0xdd</span>,<span class="number">0xbd</span>,<span class="number">0x7d</span>,</span><br><span class="line">				<span class="number">0xeb</span>,<span class="number">0xdb</span>,<span class="number">0xbb</span>,<span class="number">0x7b</span>,</span><br><span class="line">				<span class="number">0xe7</span>,<span class="number">0xd7</span>,<span class="number">0xb7</span>,<span class="number">0x77</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> <span class="title function_">getKey</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">char</span> key_scan[]=&#123;<span class="number">0xef</span>,<span class="number">0xdf</span>,<span class="number">0xbf</span>,<span class="number">0x7f</span>&#125;;	<span class="comment">// 键扫描码</span></span><br><span class="line">	<span class="type">char</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		P2=key_scan[i];		<span class="comment">// P2送出键扫描码</span></span><br><span class="line">		<span class="keyword">if</span>((P2&amp;<span class="number">0x0f</span>)!=<span class="number">0x0f</span>)	<span class="comment">// 如果有按键被按下</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">16</span>;j++)	<span class="comment">// 找出按下按键的号码</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(key_buf[j]==P2) <span class="keyword">return</span> j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;	<span class="comment">// 没有按下按键返回 -1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">char</span> key=<span class="number">0</span>;</span><br><span class="line">	P0=<span class="number">0x00</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		key = getKey();</span><br><span class="line">		<span class="keyword">if</span>(key!=<span class="number">-1</span>)	</span><br><span class="line">			P0=led_mod[key];</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-8-一位密码锁"><a href="#4-8-一位密码锁" class="headerlink" title="4.8 一位密码锁"></a>4.8 一位密码锁</h2><div class="note primary flat"><p>在4.7原理图上，系统上电后LED灭，数码管显示闪烁“8”，约1s后改为“-”（待机状态）；单击按键表示输入一位密码，若密码正确，显示“P”，LED灯亮，随后进入待机状态；否则显示”E”，LED灯灭，随后进入待机状态</p>
+</div>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line">sbit lock=P3^<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> key_buf[]=&#123;<span class="number">0xee</span>,<span class="number">0xde</span>,<span class="number">0xbe</span>,<span class="number">0x7e</span>,</span><br><span class="line">				<span class="number">0xed</span>,<span class="number">0xdd</span>,<span class="number">0xbd</span>,<span class="number">0x7d</span>,</span><br><span class="line">				<span class="number">0xeb</span>,<span class="number">0xdb</span>,<span class="number">0xbb</span>,<span class="number">0x7b</span>,</span><br><span class="line">				<span class="number">0xe7</span>,<span class="number">0xd7</span>,<span class="number">0xb7</span>,<span class="number">0x77</span>&#125;;</span><br><span class="line"></span><br><span class="line">uchar init=<span class="number">0x7f</span>,on=<span class="number">0x73</span>,off=<span class="number">0x79</span>,lock_on=<span class="number">0</span>,lock_off=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> <span class="title function_">getKey</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 同4.7getKey()方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">delay</span><span class="params">(uint time)</span></span><br><span class="line">&#123;</span><br><span class="line">	uchar j;</span><br><span class="line">	<span class="keyword">for</span>(;time&gt;<span class="number">0</span>;time--) <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">125</span>;j++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">action</span><span class="params">(<span class="type">char</span> stat, <span class="type">char</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">	uchar i;</span><br><span class="line">	lock=num;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">2</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		P0=stat;</span><br><span class="line">		delay(<span class="number">500</span>);</span><br><span class="line">		P0=<span class="number">0x0</span>;</span><br><span class="line">		delay(<span class="number">500</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	P0=<span class="number">0x40</span>;</span><br><span class="line">	lock=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">char</span> key=<span class="number">0</span>;</span><br><span class="line">	action(init,lock_off);</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		key=getKey();</span><br><span class="line">		<span class="keyword">if</span>(key!=<span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(key!=<span class="number">7</span>) action(off,lock_off);</span><br><span class="line">			<span class="keyword">else</span> action(on,lock_on);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="第5章-中断系统"><a href="#第5章-中断系统" class="headerlink" title="第5章 中断系统"></a>第5章 中断系统</h1><h2 id="5-1-中断的概念"><a href="#5-1-中断的概念" class="headerlink" title="5.1 中断的概念"></a>5.1 中断的概念</h2><div class="note danger no-icon flat"><p>计算机在运行当前程序的过程中，若遇紧急或突发事件，可以暂停当前程序的运行，转向处理该突发事件，处理完成后再从当前程序的间断处接着运行。</p>
+</div>
+
+<p>中断管理系统处理突发事件的过程，成为CPU的<strong>中断响应过程</strong>。</p>
+<p>中断管理系统处理的突发事件称为<strong>中断源</strong>，中断源向CPU提出的处理请求称为<strong>中断请求</strong>，针对中断源和中断请求提供的服务函数称为<strong>中断函数</strong>。调用中断函数的过程是系统根据工作环境<strong>随机决定</strong>的</p>
+<p>中断能实现的功能：</p>
+<ul>
+<li>分时操作：CPU可以与多个外设同时工作</li>
+<li>实时处理：CPU可以立即响应并加以处理请求</li>
+<li>故障处理：当出现故障时，CPU可及时转去执行故障处理程序，自行处理而不会死机。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.sbtxigua.xyz">Watermelon</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.sbtxigua.xyz/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/">https://www.sbtxigua.xyz/2024/03/单片机学习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.sbtxigua.xyz" target="_blank">哥们的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/">单片机学习</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/03/myBlog01-md/" title="myBlog01"><img class="cover" src="https://s2.loli.net/2024/03/24/dV4zyOTwZ8x1ihC.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">myBlog01</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2024/03/22/1Le9pdZf7JVoYr5.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Watermelon</div><div class="author-info__description">记录我的学习过程</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sbtxigua/sbtxigua.github.io"><i class="fab fa-github"></i><span>我的Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/sbtxigua" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%A6%82%E8%BF%B0"><span class="toc-text">第1章 基础知识概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%8D%95%E7%89%87%E6%9C%BA%E6%A6%82%E8%BF%B0"><span class="toc-text">1.1 单片机概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">1.1.1 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-text">1.1.2 应用领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-%E4%B8%BB%E6%B5%81%E5%8D%95%E7%89%87%E6%9C%BA%E5%8F%8A%E5%85%B6%E7%89%B9%E7%82%B9"><span class="toc-text">1.1.3 主流单片机及其特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-4-%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-text">1.1.4 发展趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-5-%E5%AE%89%E8%A3%85Proteus"><span class="toc-text">1.1.5 安装Proteus</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="toc-text">1.2 基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0"><span class="toc-text">1.2.1 有符号数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E5%92%8C%E5%AD%97"><span class="toc-text">1.2.2 位、字节和字</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0-MCS-51%E7%9A%84%E7%BB%93%E6%9E%84%E7%BB%84%E6%88%90"><span class="toc-text">第2章 MCS-51的结构组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">2.1 单片机的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-MCS-51%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-text">2.1.1 MCS-51的内部结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-text">1. 控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-text">2. 运算器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-MCS-51%E5%A4%96%E9%83%A8%E5%BC%95%E8%84%9A%E5%8F%8A%E5%85%B6%E5%8A%9F%E8%83%BD"><span class="toc-text">2.1.2 MCS-51外部引脚及其功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84"><span class="toc-text">2.2 单片机的存储器结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%92%E5%88%86%E6%96%B9%E6%B3%95"><span class="toc-text">2.2.1 存储器划分方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E7%A8%8B%E5%BA%8F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">2.2.2 程序存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">2.2.3 数据存储器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%A4%8D%E4%BD%8D%E4%B8%8E%E6%97%B6%E5%BA%8F"><span class="toc-text">2.3 单片机的复位与时序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%A4%8D%E4%BD%8D"><span class="toc-text">2.3.1 单片机的复位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E6%97%B6%E5%BA%8F"><span class="toc-text">2.3.2 单片机的时序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%8D%95%E7%89%87%E6%9C%BA%E5%B9%B6%E8%A1%8CI-O%E5%8F%A3"><span class="toc-text">2.4 单片机并行I&#x2F;O口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-P1%E5%8F%A3"><span class="toc-text">2.4.1 P1口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-P3%E5%8F%A3"><span class="toc-text">2.4.2 P3口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-P0%E5%8F%A3"><span class="toc-text">2.4.3 P0口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-P2%E5%8F%A3"><span class="toc-text">2.4.4 P2口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E7%BB%98%E5%88%B6Proteus%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-text">2.5 绘制Proteus原理图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC3%E7%AB%A0-C51%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80"><span class="toc-text">第3章 C51编程语言基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="toc-text">3.1 编译工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E6%BA%90%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="toc-text">3.1.1 源程序开发过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-Source-Code%E5%B7%A5%E4%BD%9C%E7%95%8C%E9%9D%A2"><span class="toc-text">3.1.2  Source Code工作界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-Source-Code%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">3.1.3 Source Code基本用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%9F%BA%E6%9C%AC%E6%89%A7%E8%A1%8C%E8%AF%AD%E5%8F%A5"><span class="toc-text">3.2 基本执行语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="toc-text">3.2.1 表达式语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E9%80%89%E6%8B%A9%E8%AF%AD%E5%8F%A5"><span class="toc-text">3.2.2 选择语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">3.2.3 循环语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-%E6%B3%A8%E9%87%8A%E8%AF%AD%E5%8F%A5"><span class="toc-text">3.2.4 注释语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%8F%98%E9%87%8F"><span class="toc-text">3.3 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E5%8F%98%E9%87%8F%E6%A6%82%E8%BF%B0"><span class="toc-text">3.3.1 变量概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-text">3.3.2 变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.3.3 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.3.4 存储类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-5-%E5%AD%98%E5%82%A8%E7%A7%8D%E7%B1%BB"><span class="toc-text">3.3.5 存储种类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%8C%87%E9%92%88"><span class="toc-text">3.4 指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E6%95%B0%E7%BB%84"><span class="toc-text">3.5 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E5%87%BD%E6%95%B0"><span class="toc-text">3.6 函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC4%E7%AB%A0-%E9%80%9A%E7%94%A8I-O%E5%8F%A3%E6%96%B9%E5%BC%8F%E5%BA%94%E7%94%A8"><span class="toc-text">第4章 通用I&#x2F;O口方式应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E7%8B%AC%E7%AB%8B%E6%8C%89%E9%94%AE%E8%AF%86%E5%88%AB"><span class="toc-text">4.1 独立按键识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E9%94%AE%E6%8E%A7%E6%B5%81%E6%B0%B4%E7%81%AF"><span class="toc-text">4.2 键控流水灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E6%B5%81%E6%B0%B4%E7%81%AF%E6%8E%A7%E5%88%B6"><span class="toc-text">4.3 流水灯控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-LED%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text">4.4 LED数码管显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E8%AE%A1%E6%95%B0%E6%98%BE%E7%A4%BA%E5%99%A8"><span class="toc-text">4.5 计数显示器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E6%95%B0%E7%A0%81%E7%AE%A1%E5%8A%A8%E6%80%81%E6%98%BE%E7%A4%BA"><span class="toc-text">4.6 数码管动态显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98"><span class="toc-text">4.7 矩阵键盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E4%B8%80%E4%BD%8D%E5%AF%86%E7%A0%81%E9%94%81"><span class="toc-text">4.8 一位密码锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC5%E7%AB%A0-%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text">第5章 中断系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E4%B8%AD%E6%96%AD%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">5.1 中断的概念</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/" title="MCULearn"><img src="https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MCULearn"/></a><div class="content"><a class="title" href="/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/" title="MCULearn">MCULearn</a><time datetime="2024-03-27T03:35:51.000Z" title="发表于 2024-03-27 11:35:51">2024-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/myBlog01-md/" title="myBlog01"><img src="https://s2.loli.net/2024/03/24/dV4zyOTwZ8x1ihC.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="myBlog01"/></a><div class="content"><a class="title" href="/2024/03/myBlog01-md/" title="myBlog01">myBlog01</a><time datetime="2024-03-07T09:47:14.000Z" title="发表于 2024-03-07 17:47:14">2024-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="个人博客搭建"><img src="https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人博客搭建"/></a><div class="content"><a class="title" href="/2024/03/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="个人博客搭建">个人博客搭建</a><time datetime="2024-03-07T08:14:18.321Z" title="发表于 2024-03-07 16:14:18">2024-03-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2024/03/24/gwoRBbd4HyKtlNL.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Watermelon</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://www.sbtxigua.xyz/">这是</a>叁倍体西瓜的博客，感谢您的访问</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://www.sbtxigua.xyz/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/'
+    this.page.identifier = '/2024/03/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0/'
+    this.page.title = 'MCULearn'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.65.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.13.0"></script></div></div></body></html>
